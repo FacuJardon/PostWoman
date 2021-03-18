@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 Welcome to PostWoman
+
+  form(action="/request" method="POST")
+    p Url:
+      input(type="text" name="urlRequest" placeholder="" value=url)
+    p Auth:
+      p User:
+        input(type="text" name="userRequest" placeholder="" value=usr)
+      p Password:
+        input(type="text" name="passwordRequest" placeholder="" value=password)
+    p Method:
+      select#methods(name='methodRequest')
+        option(value='POST') POST
+        option(value='GET') GET
+        option(value='PUT') PUT
+        option(value='DELETE') DELETE
+    p Body request:
+      br
+      textarea(type="text" name="bodyRequest" cols="30" rows="10")=request
+    input(type="submit" name="RequestButton" value="Request!")
+
+  p Response:
+    br
+    textarea(id="bodyResponse" cols="30" rows="10" readonly)=response
